@@ -1,0 +1,323 @@
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* dark shades of primary color*/
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --radius: 0.25rem;
+  --fixed-width: 620px;
+  --clr-white: #fff;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ************ navbar styling************************888 */
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: aquamarine;
+    box-shadow: 0 4px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 400;
+    color: white;
+  
+  }
+  .cart-shower {
+    display: flex;
+  }
+  .cart-icon {
+    margin-top: 20px;
+    color: rgb(116, 66, 70);
+    font-weight: 400;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  .cart-icon:hover {
+    color: black;
+    transform: rotate(360deg);
+  }
+  .cart-amount-circle {
+    height: 40px;
+    width: 40px;
+    border-radius: 1.5rem;
+    background-color: rgb(202, 247, 232);
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+  }
+
+  /********************* book list showing styling *****************************  */
+  .booklist-body {
+      width: 85%;
+      height: 100%;
+      /* background-color: rgb(138, 162, 184); */
+      margin-top: 1.8rem;
+      margin-left: 7%;
+      /* padding: 0.5rem; */
+     
+  }
+  .booklist-body-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
+  .book-item-box {
+      /* background-color: brown; */
+      box-shadow: 0 4px rgba(218, 185, 185, 0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+      width: calc(10rem + 5vw);
+      margin: 1rem;
+      padding: 0.5rem;
+      transition: 0.5s ease-in-out;
+  }
+  .book-item-box:hover{
+      /* background-color: brown; */
+      box-shadow: 0 4px rgba(255, 0, 0, 0.8),0 6px 20px 0 rgba(0,0,0,0.19);
+      transform: scale(1.06);
+  }
+  .book-item-box img {
+      display: flex;
+      margin-left:5%;
+      width: 90%;
+      object-fit: cover;
+  }
+  .book-details {
+      display: flex;
+      padding: 5px;
+      justify-content: space-between;
+      font-size: 0.7rem;
+  }
+  .add-to-cart-button-price {
+      display: flex;
+      justify-content: space-between;
+  }
+  .add-to-cart-button-price button {
+      padding: 4px 0;
+      padding: 3px;
+      background-color: aquamarine ;
+      /* border-radius: 0.4rem; */
+      cursor: pointer;
+      border-bottom: rgb(255, 0, 0) 0.15rem solid ;
+      border-top: rgb(255, 255, 255) 0.01rem solid ;
+      border-right: rgb(255, 255, 255) 0.01rem solid ;
+      border-left: rgb(0, 4, 255) 0.15rem solid ;
+      transition: 0.3s ease-in-out;
+
+  }
+  .add-to-cart-button-price button:hover {
+      padding: 4px 0;
+      padding: 3px;
+      background-color: rgb(170, 214, 87);
+      color: white;
+      /* border-radius: 0.4rem; */
+      border-bottom: rgb(255, 255, 255) 0.01rem solid ;
+      border-top:  rgb(0, 4, 255) 0.15rem solid ;
+      border-right:  rgb(255, 0, 0) 0.15rem solid ;
+      border-left: rgb(255, 255, 255) 0.01rem solid ;
+  }
+  /* =============== 
+Modal
+===============
+*/ 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  transition: 0.3s;
+  visibility: hidden;
+  /* max-height: calc(100vh - 210px); */
+  overflow-y: auto;
+  z-index: -1;
+}
+/* OPEN/CLOSE MODAL */
+.show-modal {
+  visibility: visible;
+  z-index: 10;
+}
+.modal-container {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  width: 60%;
+  min-width: 700px;
+  text-align: center;
+  position: relative;
+}
+.close-modal-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-red-dark);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.close-modal-btn:hover {
+  position: absolute;
+  color: rgb(27, 27, 23);
+  transform: rotate(180deg);
+}
+
+/********************** styling modal or cart items **************************************8888*/
+
+.cart-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+.modal-container h3 {
+  padding: 40px;
+  /* transform: translate(100px); */
+  font-size: 2rem;
+  color: rgb(165, 19, 19);
+}
+.cart-image-details {
+  display: flex;
+}
+.remove-couple-button {
+  display: flex;
+}
+.cart-image-details img {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+}
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 50px;
+
+}
+.grand-total {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.clear-cart-proceed-to-pay {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.clear-cart button,
+.proceed-to-pay button {
+  padding: 4px;
+  background-color: rgb(255, 246, 241);
+  font-family: cursive;
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.clear-cart button:hover,
+.proceed-to-pay button:hover {
+  background-color: red;
+  color: white;
+}
+.after-procedding-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 400px;
+  text-align: center;
+}
+.remove-button {
+  margin-right: 10px;
+}
+.remove-button button,
+.apply-coupon button {
+  padding: 3px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.remove-button button:hover,
+.apply-coupon button:hover {
+  background-color: aqua;
+}
+.button-up,
+.button-down {
+  padding: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.button-up:hover,
+.button-down:hover {
+  background-color: aqua;
+}
+.handle-amount p {
+  font-size: 1.5rem;
+  margin-top: 5px;
+}
+
+/* ********** styling apply coupon ******************** */
+.apply-coupon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 0.4rem;
+  background-color: cadetblue;
+}
+.apply-coupon-container p {
+  margin-bottom: 5px;
+}
+.apply-coupon-container input {
+  padding: 5px;
+}
+.apply-discount {
+  margin-top: 10px;
+}
+.apply-decline-button {
+  display: flex;
+  justify-content: space-between;
+}
+.cancel-apply-discount {
+  margin-top: 10px;
+}
+/**********************8 styling filter by genre component ***************88*/
+.filter-by-benre-container {
+  display: flex;
+  justify-content: center;
+  margin-right: 10%;
+  margin-top: 20px;
+  margin-left: 18%;
+}
+.filter-by-benre-container p {
+  margin-right: 20px;
+  font-size: 1.5rem;
+}
+
+
+  
